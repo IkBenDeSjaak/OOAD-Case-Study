@@ -13,3 +13,7 @@ Performance:
 Supportability:
 - Het systeem moet binnen 3 dagen kunnen worden uitgebreid met een extra taal.
 - Het systeem moet zo worden ingesteld dat er binnen 1 dag kan worden overgestapt op een ander systeem voor de puntentelling.
+- De library voor het controleren van het woord moet binnen 1 dag vervangen kunnen worden.
+
++:
+- Het systeem moet gebruik maken van een externe library voor het controleren van het woord.
