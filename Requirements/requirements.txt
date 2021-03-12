@@ -1,0 +1,15 @@
+Functionality:
+- 
+
+Usability:
+- 
+
+Reliability:
+- 
+
+Performance:
+- Het systeem moet 99% van systeemoperaties binnen 2 seconden uitvoeren.
+
+Supportability:
+- Het systeem moet binnen 3 dagen kunnen worden uitgebreid met een extra taal.
+- Het systeem moet zo worden ingesteld dat er binnen 1 dag kan worden overgestapt op een ander systeem voor de puntentelling.
