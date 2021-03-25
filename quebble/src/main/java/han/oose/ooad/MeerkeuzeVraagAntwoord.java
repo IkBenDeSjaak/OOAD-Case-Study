@@ -1,4 +1,24 @@
 package han.oose.ooad;
 
-public class MeerkeuzeVraagAntwoord {
+public class MeerkeuzeVraagAntwoord extends Antwoord {
+    private String option;
+    private boolean isCorrect;
+
+    public MeerkeuzeVraagAntwoord(boolean isCorrect, String antwoord, String option) {
+        super(antwoord);
+        this.isCorrect = isCorrect;
+        this.option = option;
+    }
+
+    public void displayAntwoord() {
+        System.out.println(option + ": " + antwoord);
+    }
+
+    public boolean isGegevenAntwoordCorrect(String gegevenAntwoord) {
+        if(gegevenAntwoord.equals(option)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

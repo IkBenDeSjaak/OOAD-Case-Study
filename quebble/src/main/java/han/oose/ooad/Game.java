@@ -1,17 +1,27 @@
 package han.oose.ooad;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
-    private ArrayList<Speler> spelers = new ArrayList<>();
-    private ArrayList<Quiz> quizzen = new ArrayList<>();
+    private Database database = new Database();
+    private List<Speler> spelers = database.getSpelers();
+    private List<Quiz> quizzen = database.getQuizzen();
 
     public void speelQuiz(String gebruikersnaam) {
-        // minder credits
-        // krijg gespeelde quizzen van speler
-        // selecteer een quiz die de speler nog niet heeft gespeeld
+        //TODO selecteer een quiz die de speler nog niet heeft gespeeld
 
-        // speler.nieuweQuiz(quiz)
+        Speler speler = getSpeler(gebruikersnaam);
+        speler.verminderCredits(20);
+        speler.nieuweQuiz(quizzen.get(0));
+    }
 
+    public Speler getSpeler(String spelernaam) {
+        for(Speler speler : spelers) {
+            if(spelernaam.equals(speler.getGebruikersnaam())) {
+                return speler;
+            }
+        }
+        return null;
     }
 }
