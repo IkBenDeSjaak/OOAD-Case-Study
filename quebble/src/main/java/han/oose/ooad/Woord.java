@@ -1,19 +1,18 @@
 package han.oose.ooad;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Woord {
     private String woord;
+    private IWoordenAdapter woordenAdapter = new GroeneBoekjeWoordenAdapter();
 
     public Woord(String woord) {
         this.woord = woord;
     }
 
-    public boolean bestaatWoord() {
-        //TODO LAAT CONTROLEREN DOOR LIBRARY
-        return true;
+    public boolean isGeldigWoord() {
+        return woordenAdapter.isGeldigWoord(woord);
     }
 
     public boolean isWoordMetGekregenLetters(List<String> gekregenletters) {

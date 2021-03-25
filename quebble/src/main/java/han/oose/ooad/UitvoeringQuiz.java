@@ -10,7 +10,7 @@ public class UitvoeringQuiz {
     private Tijd beginTijd;
     private Tijd eindTijd;
     private Woord woord;
-    private Score score = new Score();
+    private IScoreStrategy puntenStrategy = new NormalePuntentellingStrategy();
     private List<GegevenAntwoord> gegevenAntwoorden = new ArrayList<>();
     private List<String> gekregenLetters = new ArrayList<>();
 
@@ -35,9 +35,9 @@ public class UitvoeringQuiz {
 
         Scanner scanner = new Scanner(System.in);
         woord = new Woord(scanner.nextLine());
-        woord.bestaatWoord();
         woord.isWoordMetGekregenLetters(gekregenLetters);
         woord.isWoordCorrecteLengte(gekregenLetters);
+        woord.isGeldigWoord();
 
         int woordLengte = woord.getLength();
 
@@ -46,10 +46,9 @@ public class UitvoeringQuiz {
         eindTijd = new Tijd();
         Duration speeltijd = eindTijd.getDuration(beginTijd);
 
-        score.berekenScore(aantalGoedeVragen, woordLengte, speeltijd);
+        int totaleScore = puntenStrategy.berekenScore(aantalGoedeVragen, woordLengte, speeltijd);
 
-        int totalScore = score.getScore();
-        System.out.println(totalScore);
+        System.out.println(totaleScore);
     }
 
     private int controleerAantalGoedeVragen() {
