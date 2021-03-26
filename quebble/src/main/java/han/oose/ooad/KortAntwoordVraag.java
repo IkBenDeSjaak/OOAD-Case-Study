@@ -9,10 +9,6 @@ public class KortAntwoordVraag extends Vraag {
         super(vraag, teVerdienenLetter, categorie);
     }
 
-    public void setAntwoorden(List<KortAntwoordVraagAntwoord> antwoorden) {
-        this.antwoorden = antwoorden;
-    }
-
     @Override
     public void displayVraag() {
         categorie.printCategorie();
@@ -28,5 +24,9 @@ public class KortAntwoordVraag extends Vraag {
             }
         }
         return isCorrect;
+    }
+
+    public void setAntwoorden(List<KortAntwoordVraagAntwoord> antwoorden) {
+        this.antwoorden = antwoorden;
     }
 }

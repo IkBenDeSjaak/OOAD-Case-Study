@@ -7,10 +7,6 @@ public abstract class Antwoord {
         this.antwoord = antwoord;
     }
 
-    public String getAntwoord() {
-        return antwoord;
-    }
-
     public abstract boolean isGegevenAntwoordCorrect(String gegevenAntwoord);
 
 }

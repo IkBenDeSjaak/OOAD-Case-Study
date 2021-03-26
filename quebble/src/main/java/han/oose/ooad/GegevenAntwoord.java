@@ -9,10 +9,6 @@ public class GegevenAntwoord {
         this.vraag = vraag;
     }
 
-    public String getAntwoord() {
-        return antwoord;
-    }
-
     public boolean isAntwoordCorrect() {
         return vraag.isGegevenAntwoordCorrect(antwoord);
     }

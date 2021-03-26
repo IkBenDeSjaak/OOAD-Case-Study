@@ -1,6 +1,5 @@
 package han.oose.ooad;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -37,7 +36,7 @@ public class UitvoeringQuiz {
         woord = new Woord(scanner.nextLine());
 
         int woordLengte = 0;
-        if (woord.isWoordMetGekregenLetters(gekregenLetters) && woord.isWoordCorrecteLengte(gekregenLetters) && woord.isGeldigWoord()) {
+        if (woord.checkWoord(gekregenLetters)) {
             woordLengte = woord.getLength();
         }
 

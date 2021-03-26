@@ -11,18 +11,26 @@ public class Woord {
         this.woord = woord;
     }
 
-    public boolean isGeldigWoord() {
+    public boolean checkWoord(List<String> gekregenLetters) {
+        if (isWoordMetGekregenLetters(gekregenLetters) && isWoordCorrecteLengte(gekregenLetters) && isGeldigWoord()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isGeldigWoord() {
         return woordenAdapter.isGeldigWoord(woord);
     }
 
-    public boolean isWoordMetGekregenLetters(List<String> gekregenletters) {
+    private boolean isWoordMetGekregenLetters(List<String> gekregenletters) {
         String[] woordAsArray = woord.split("");
         List<String> woordLettersList = Arrays.asList(woordAsArray);
 
         boolean metGekregenLetters = true;
 
-        for(String letterUitWoord : woordLettersList) {
-            if(gekregenletters.contains(letterUitWoord.toUpperCase())) {
+        for (String letterUitWoord : woordLettersList) {
+            if (gekregenletters.contains(letterUitWoord.toUpperCase())) {
                 metGekregenLetters = true;
             } else {
                 metGekregenLetters = false;
@@ -32,8 +40,8 @@ public class Woord {
         return metGekregenLetters;
     }
 
-    public boolean isWoordCorrecteLengte(List<String> gekregenletters) {
-        if(getLength() == gekregenletters.size()) {
+    private boolean isWoordCorrecteLengte(List<String> gekregenletters) {
+        if (getLength() == gekregenletters.size()) {
             return true;
         } else {
             return false;
