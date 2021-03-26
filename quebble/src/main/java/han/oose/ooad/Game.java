@@ -22,15 +22,6 @@ public class Game {
         return null;
     }
 
-    public Quiz getQuizMetNummer(int nummer) {
-        for(Quiz quiz : quizzen) {
-            if(quiz.getNummer() == nummer) {
-                return quiz;
-            }
-        }
-        return null;
-    }
-
     public Quiz selecteerQuiz(Speler speler) {
         List<Integer> gespeeldeQuizNummers = speler.getNummersGespeeldeQuizzen();
 
