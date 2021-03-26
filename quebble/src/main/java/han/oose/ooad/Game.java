@@ -1,6 +1,5 @@
 package han.oose.ooad;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -9,11 +8,9 @@ public class Game {
     private List<Quiz> quizzen = database.getQuizzen();
 
     public void speelQuiz(String gebruikersnaam) {
-        //TODO selecteer een quiz die de speler nog niet heeft gespeeld
-
         Speler speler = getSpeler(gebruikersnaam);
         speler.verminderCredits(20);
-        speler.nieuweQuiz(quizzen.get(0));
+        speler.nieuweQuiz(selecteerQuiz(speler));
     }
 
     public Speler getSpeler(String spelernaam) {
@@ -24,4 +21,26 @@ public class Game {
         }
         return null;
     }
+
+    public Quiz getQuizMetNummer(int nummer) {
+        for(Quiz quiz : quizzen) {
+            if(quiz.getNummer() == nummer) {
+                return quiz;
+            }
+        }
+        return null;
+    }
+
+    public Quiz selecteerQuiz(Speler speler) {
+        List<Integer> gespeeldeQuizNummers = speler.getNummersGespeeldeQuizzen();
+
+        for(Quiz quiz : quizzen) {
+            if(!gespeeldeQuizNummers.contains(quiz.getNummer())) {
+                return quiz;
+            }
+        }
+
+        return quizzen.get(0);
+    }
+
 }

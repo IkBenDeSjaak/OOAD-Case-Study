@@ -1,10 +1,10 @@
 package han.oose.ooad;
 
-import java.time.Duration;
-
-public class GoedeVragenBelangrijkStrategy implements IScoreStrategy{
+public class GoedeVragenBelangrijkStrategy implements IScoreStrategy {
     @Override
-    public int berekenScore(int aantalGoedeVragen, int lengteWoord, Duration quiztijd) {
-        return 10;
+    public int berekenScore(int aantalGoedeVragen, int lengteWoord, int quiztijd) {
+        int score = (aantalGoedeVragen * 2) + lengteWoord;
+
+        return score;
     }
 }

@@ -22,7 +22,9 @@ public class Woord {
         boolean metGekregenLetters = true;
 
         for(String letterUitWoord : woordLettersList) {
-            if(!gekregenletters.contains(letterUitWoord)) {
+            if(gekregenletters.contains(letterUitWoord.toUpperCase())) {
+                metGekregenLetters = true;
+            } else {
                 metGekregenLetters = false;
             }
         }

@@ -21,7 +21,7 @@ public class UitvoeringQuiz {
     public void speelQuiz() {
         beginTijd = new Tijd();
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             quiz.displayVraag(i);
             Scanner scanner = new Scanner(System.in);
             String antwoord = scanner.nextLine();
@@ -35,26 +35,25 @@ public class UitvoeringQuiz {
 
         Scanner scanner = new Scanner(System.in);
         woord = new Woord(scanner.nextLine());
-        woord.isWoordMetGekregenLetters(gekregenLetters);
-        woord.isWoordCorrecteLengte(gekregenLetters);
-        woord.isGeldigWoord();
 
-        int woordLengte = woord.getLength();
+        int woordLengte = 0;
+        if (woord.isWoordMetGekregenLetters(gekregenLetters) && woord.isWoordCorrecteLengte(gekregenLetters) && woord.isGeldigWoord()) {
+            woordLengte = woord.getLength();
+        }
 
         int aantalGoedeVragen = controleerAantalGoedeVragen();
 
         eindTijd = new Tijd();
-        Duration speeltijd = eindTijd.getDuration(beginTijd);
+        int speeltijd = eindTijd.getDurationInSeconds(beginTijd);
 
         int totaleScore = puntenStrategy.berekenScore(aantalGoedeVragen, woordLengte, speeltijd);
-
-        System.out.println(totaleScore);
+        System.out.print("Je hebt de volgende score behaald: " + totaleScore);
     }
 
     private int controleerAantalGoedeVragen() {
         int aantalGoed = 0;
-        for(GegevenAntwoord antwoord : gegevenAntwoorden) {
-            if(antwoord.isAntwoordCorrect()) {
+        for (GegevenAntwoord antwoord : gegevenAntwoorden) {
+            if (antwoord.isAntwoordCorrect()) {
                 aantalGoed++;
             }
         }
@@ -62,12 +61,16 @@ public class UitvoeringQuiz {
     }
 
     private void getCorrectLetters() {
-        for(GegevenAntwoord antwoord : gegevenAntwoorden) {
-            if(antwoord.isAntwoordCorrect()) {
+        for (GegevenAntwoord antwoord : gegevenAntwoorden) {
+            if (antwoord.isAntwoordCorrect()) {
                 String letter = antwoord.getLetter();
                 gekregenLetters.add(letter);
             }
         }
+    }
+
+    public int getQuizNummer() {
+        return quiz.getNummer();
     }
 
     private void displayGekregenLetters() {

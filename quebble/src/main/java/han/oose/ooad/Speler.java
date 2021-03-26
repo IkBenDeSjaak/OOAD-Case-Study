@@ -20,6 +20,16 @@ public class Speler {
         nieuweQuiz.speelQuiz();
     }
 
+    public List<Integer> getNummersGespeeldeQuizzen() {
+        List<Integer> gespeeldeQuizNummers = new ArrayList<>();
+
+        for(UitvoeringQuiz uitvoeringQuiz : gespeeldeQuizzen) {
+            gespeeldeQuizNummers.add(uitvoeringQuiz.getQuizNummer());
+        }
+
+        return gespeeldeQuizNummers;
+    }
+
     public void verminderCredits(int amount) {
         credits -= amount;
     }

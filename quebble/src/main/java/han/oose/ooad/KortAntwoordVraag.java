@@ -5,8 +5,8 @@ import java.util.List;
 public class KortAntwoordVraag extends Vraag {
     private List<KortAntwoordVraagAntwoord> antwoorden;
 
-    public KortAntwoordVraag(String vraag, String teVerdienenLetter) {
-        super(vraag, teVerdienenLetter);
+    public KortAntwoordVraag(String vraag, String teVerdienenLetter, Categorie categorie) {
+        super(vraag, teVerdienenLetter, categorie);
     }
 
     public void setAntwoorden(List<KortAntwoordVraagAntwoord> antwoorden) {
@@ -15,6 +15,7 @@ public class KortAntwoordVraag extends Vraag {
 
     @Override
     public void displayVraag() {
+        categorie.printCategorie();
         System.out.println(vraag);
     }
 

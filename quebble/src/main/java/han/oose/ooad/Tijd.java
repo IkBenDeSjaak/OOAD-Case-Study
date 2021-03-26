@@ -10,7 +10,11 @@ public class Tijd {
         this.tijdstip = LocalDateTime.now();
     }
 
-    Duration getDuration(Tijd tijd) {
-        return Duration.between(tijd.tijdstip, tijdstip);
+    int getDurationInSeconds(Tijd tijd) {
+        Duration speeltijd = Duration.between(tijd.tijdstip, tijdstip);
+
+        int speeltijdInSecondes = (int) speeltijd.getSeconds();
+
+        return speeltijdInSecondes;
     }
 }

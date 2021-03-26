@@ -13,10 +13,13 @@ public class Database {
     }
 
     public void generateQuizzen() {
+        Categorie geography = new Categorie("Geografie");
+        Categorie sport = new Categorie("Sport");
+
         List<Vraag> vragenQuiz1 = new ArrayList<>();
 
         //VRAAG 1
-        MeerkeuzeVraag vraag1quiz1 = new MeerkeuzeVraag("Welk land heeft een rode vlag met witte wassenaar en ster?", "A");
+        MeerkeuzeVraag vraag1quiz1 = new MeerkeuzeVraag("Welk land heeft een rode vlag met witte wassenaar en ster?", "A", geography);
         MeerkeuzeVraagAntwoord vraag1quiz1antwoord1 = new MeerkeuzeVraagAntwoord(true,"Turkije", "A");
         MeerkeuzeVraagAntwoord vraag1quiz1antwoord2 = new MeerkeuzeVraagAntwoord(false,"Roemenië", "B");
         MeerkeuzeVraagAntwoord vraag1quiz1antwoord3 = new MeerkeuzeVraagAntwoord(false,"Nederland", "C");
@@ -32,7 +35,7 @@ public class Database {
         vragenQuiz1.add(vraag1quiz1);
 
         //VRAAG 2
-        MeerkeuzeVraag vraag2quiz1 = new MeerkeuzeVraag("Hoe heet het meest zuidelijke land van Afrika?", "T");
+        MeerkeuzeVraag vraag2quiz1 = new MeerkeuzeVraag("Hoe heet het meest zuidelijke land van Afrika?", "T", geography);
         MeerkeuzeVraagAntwoord vraag2quiz1antwoord1 = new MeerkeuzeVraagAntwoord(false,"Noord-Afrika", "A");
         MeerkeuzeVraagAntwoord vraag2quiz1antwoord2 = new MeerkeuzeVraagAntwoord(false,"Nigeria", "B");
         MeerkeuzeVraagAntwoord vraag2quiz1antwoord3 = new MeerkeuzeVraagAntwoord(false,"Nederland", "C");
@@ -48,7 +51,7 @@ public class Database {
         vragenQuiz1.add(vraag2quiz1);
 
         //VRAAG 3
-        KortAntwoordVraag vraag3quiz1 = new KortAntwoordVraag("Van welk land is het Klavertje Vier het symbool?", "R");
+        KortAntwoordVraag vraag3quiz1 = new KortAntwoordVraag("Van welk land is het Klavertje Vier het symbool?", "R", geography);
         KortAntwoordVraagAntwoord vraag3quiz1antwoord1 = new KortAntwoordVraagAntwoord("Ierland");
         KortAntwoordVraagAntwoord vraag3quiz1antwoord2 = new KortAntwoordVraagAntwoord("Ireland");
 

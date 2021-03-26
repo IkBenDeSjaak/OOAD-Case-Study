@@ -11,6 +11,10 @@ public class Quiz {
         this.vragen = vragen;
     }
 
+    public int getNummer() {
+        return nummer;
+    }
+
     public Vraag getVraag(int vraagnummer) {
         return vragen.get(vraagnummer);
     }
