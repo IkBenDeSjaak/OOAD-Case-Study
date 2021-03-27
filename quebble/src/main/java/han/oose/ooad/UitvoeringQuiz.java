@@ -28,12 +28,15 @@ public class UitvoeringQuiz {
             gegevenAntwoorden.add(gegevenAntwoord);
         }
 
-        getCorrectLetters();
+        getLettersGoedeAntwoorden();
         displayGekregenLetters();
         displayVormWoordMessage();
 
         Scanner scanner = new Scanner(System.in);
         woord = new Woord(scanner.nextLine());
+
+        eindTijd = new Tijd();
+        int speeltijd = eindTijd.getDurationInSeconds(beginTijd);
 
         int woordLengte = 0;
         if (woord.checkWoord(gekregenLetters)) {
@@ -42,11 +45,8 @@ public class UitvoeringQuiz {
 
         int aantalGoedeVragen = controleerAantalGoedeVragen();
 
-        eindTijd = new Tijd();
-        int speeltijd = eindTijd.getDurationInSeconds(beginTijd);
-
         int totaleScore = puntenStrategy.berekenScore(aantalGoedeVragen, woordLengte, speeltijd);
-        System.out.print("Je hebt de volgende score behaald: " + totaleScore);
+        displayBehaaldeScore(totaleScore);
     }
 
     private int controleerAantalGoedeVragen() {
@@ -59,7 +59,7 @@ public class UitvoeringQuiz {
         return aantalGoed;
     }
 
-    private void getCorrectLetters() {
+    private void getLettersGoedeAntwoorden() {
         for (GegevenAntwoord antwoord : gegevenAntwoorden) {
             if (antwoord.isAntwoordCorrect()) {
                 String letter = antwoord.getLetter();
@@ -78,6 +78,10 @@ public class UitvoeringQuiz {
 
     private void displayVormWoordMessage() {
         System.out.println("Vorm een woord met de verkregen letters.");
+    }
+
+    private void displayBehaaldeScore(int score) {
+        System.out.print("Je hebt de volgende score behaald: " + score);
     }
 
 }

@@ -9,8 +9,11 @@ public class Game {
 
     public void speelQuiz(String gebruikersnaam) {
         Speler speler = getSpeler(gebruikersnaam);
-        speler.verminderCredits(20);
-        speler.nieuweQuiz(selecteerQuiz(speler));
+        int spelerCredits = speler.getCredits();
+        if(spelerCredits >= 20) {
+            speler.verminderCredits(20);
+            speler.nieuweQuiz(selecteerQuiz(speler));
+        }
     }
 
     public Speler getSpeler(String spelernaam) {
