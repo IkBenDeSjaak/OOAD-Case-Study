@@ -15,7 +15,7 @@ public class MeerkeuzeVraagAntwoord extends Antwoord {
     }
 
     public boolean isGegevenAntwoordCorrect(String gegevenAntwoord) {
-        if(gegevenAntwoord.equals(option)) {
+        if(option.equals(gegevenAntwoord) && isCorrect) {
             return true;
         } else {
             return false;

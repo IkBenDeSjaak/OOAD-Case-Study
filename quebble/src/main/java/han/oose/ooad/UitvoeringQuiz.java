@@ -20,7 +20,7 @@ public class UitvoeringQuiz {
     public void speelQuiz() {
         beginTijd = new Tijd();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 8; i++) {
             quiz.displayVraag(i);
             Scanner scanner = new Scanner(System.in);
             String antwoord = scanner.nextLine();

@@ -20,13 +20,12 @@ public class MeerkeuzeVraag extends Vraag {
 
     @Override
     public boolean isGegevenAntwoordCorrect(String gegevenAntwoord) {
-        boolean isCorrect = false;
         for(MeerkeuzeVraagAntwoord antwoord : antwoorden) {
             if(antwoord.isGegevenAntwoordCorrect(gegevenAntwoord)) {
-                isCorrect = true;
+                return true;
             }
         }
-        return isCorrect;
+        return false;
     }
 
     public void setAntwoorden(List<MeerkeuzeVraagAntwoord> antwoorden) {

@@ -62,6 +62,64 @@ public class Database {
         vraag3quiz1.setAntwoorden(vraag3quiz1antwoorden);
         vragenQuiz1.add(vraag3quiz1);
 
+        //VRAAG 4
+        KortAntwoordVraag vraag4quiz1 = new KortAntwoordVraag("Uit welke stad komt de voetbalclub Ajax?", "P", sport);
+        KortAntwoordVraagAntwoord vraag4quiz1antwoord1 = new KortAntwoordVraagAntwoord("Amsterdam");
+
+        List<KortAntwoordVraagAntwoord> vraag4quiz1antwoorden = new ArrayList<>();
+        vraag4quiz1antwoorden.add(vraag4quiz1antwoord1);
+
+        vraag4quiz1.setAntwoorden(vraag4quiz1antwoorden);
+        vragenQuiz1.add(vraag4quiz1);
+
+        //VRAAG 5
+        KortAntwoordVraag vraag5quiz1 = new KortAntwoordVraag("Met hoeveel ballen wordt biljart gespeeld?", "F", sport);
+        KortAntwoordVraagAntwoord vraag5quiz1antwoord1 = new KortAntwoordVraagAntwoord("3");
+        KortAntwoordVraagAntwoord vraag5quiz1antwoord2 = new KortAntwoordVraagAntwoord("drie");
+
+        List<KortAntwoordVraagAntwoord> vraag5quiz1antwoorden = new ArrayList<>();
+        vraag5quiz1antwoorden.add(vraag5quiz1antwoord1);
+        vraag5quiz1antwoorden.add(vraag5quiz1antwoord2);
+
+        vraag5quiz1.setAntwoorden(vraag5quiz1antwoorden);
+        vragenQuiz1.add(vraag5quiz1);
+
+        //VRAAG 6
+        KortAntwoordVraag vraag6quiz1 = new KortAntwoordVraag("In welke stad staat de Sagrada Familia?", "S", geography);
+        KortAntwoordVraagAntwoord vraag6quiz1antwoord1 = new KortAntwoordVraagAntwoord("Barcelona");
+
+        List<KortAntwoordVraagAntwoord> vraag6quiz1antwoorden = new ArrayList<>();
+        vraag6quiz1antwoorden.add(vraag6quiz1antwoord1);
+
+        vraag6quiz1.setAntwoorden(vraag6quiz1antwoorden);
+        vragenQuiz1.add(vraag6quiz1);
+
+        //VRAAG 7
+        KortAntwoordVraag vraag7quiz1 = new KortAntwoordVraag("Welk land ligt tussen Frankrijk en Spanje?", "E", geography);
+        KortAntwoordVraagAntwoord vraag7quiz1antwoord1 = new KortAntwoordVraagAntwoord("Andorra");
+
+        List<KortAntwoordVraagAntwoord> vraag7quiz1antwoorden = new ArrayList<>();
+        vraag7quiz1antwoorden.add(vraag7quiz1antwoord1);
+
+        vraag7quiz1.setAntwoorden(vraag7quiz1antwoorden);
+        vragenQuiz1.add(vraag7quiz1);
+
+        //VRAAG 8
+        MeerkeuzeVraag vraag8quiz1 = new MeerkeuzeVraag("Hoe lang duurt een voetbalwedstrijd?", "O", sport);
+        MeerkeuzeVraagAntwoord vraag8quiz1antwoord1 = new MeerkeuzeVraagAntwoord(false,"60 minuten", "A");
+        MeerkeuzeVraagAntwoord vraag8quiz1antwoord2 = new MeerkeuzeVraagAntwoord(false,"45 minuten", "B");
+        MeerkeuzeVraagAntwoord vraag8quiz1antwoord3 = new MeerkeuzeVraagAntwoord(true,"90 minuten", "C");
+        MeerkeuzeVraagAntwoord vraag8quiz1antwoord4 = new MeerkeuzeVraagAntwoord(false,"120 minuten", "D");
+
+        List<MeerkeuzeVraagAntwoord> vraag8quiz1antwoorden = new ArrayList<>();
+        vraag8quiz1antwoorden.add(vraag8quiz1antwoord1);
+        vraag8quiz1antwoorden.add(vraag8quiz1antwoord2);
+        vraag8quiz1antwoorden.add(vraag8quiz1antwoord3);
+        vraag8quiz1antwoorden.add(vraag8quiz1antwoord4);
+
+        vraag8quiz1.setAntwoorden(vraag8quiz1antwoorden);
+        vragenQuiz1.add(vraag8quiz1);
+
         Quiz quiz1 = new Quiz(1, vragenQuiz1);
 
         quizzen.add(quiz1);
