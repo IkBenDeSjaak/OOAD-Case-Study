@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Speler {
-    private int credits = 1000;
+    private int credits;
     private String gebruikersnaam;
     private String wachtwoord;
     private List<UitvoeringQuiz> gespeeldeQuizzen = new ArrayList<>();
 
-    public Speler(String gebruikersnaam, String wachtwoord) {
+    public Speler(String gebruikersnaam, String wachtwoord, int credits) {
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
+        this.credits = credits;
     }
 
     public void nieuweQuiz(Quiz quiz) {

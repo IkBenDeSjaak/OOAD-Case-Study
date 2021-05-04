@@ -1,16 +1,20 @@
 package han.oose.ooad;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class UitvoeringQuiz {
     private Quiz quiz;
-    private Tijd beginTijd;
-    private Tijd eindTijd;
+    private LocalDateTime beginTijd;
+    private LocalDateTime eindTijd;
     private Woord woord;
+    private int score;
     private IScoreStrategy puntenStrategy = new NormalePuntentellingStrategy();
     private List<GegevenAntwoord> gegevenAntwoorden = new ArrayList<>();
+    private List<GegevenAntwoord> goedeAntwoorden = new ArrayList<>();
     private List<String> gekregenLetters = new ArrayList<>();
 
     public UitvoeringQuiz(Quiz quiz) {
@@ -18,7 +22,7 @@ public class UitvoeringQuiz {
     }
 
     public void speelQuiz() {
-        beginTijd = new Tijd();
+        beginTijd = getHuidigeTijd();
 
         for (int i = 0; i < 8; i++) {
             quiz.displayVraag(i);
@@ -28,6 +32,7 @@ public class UitvoeringQuiz {
             gegevenAntwoorden.add(gegevenAntwoord);
         }
 
+        controleerGoedeAntwoorden();
         getLettersGoedeAntwoorden();
         displayGekregenLetters();
         displayVormWoordMessage();
@@ -35,37 +40,50 @@ public class UitvoeringQuiz {
         Scanner scanner = new Scanner(System.in);
         woord = new Woord(scanner.nextLine());
 
-        eindTijd = new Tijd();
-        int speeltijd = eindTijd.getDurationInSeconds(beginTijd);
+        eindTijd = getHuidigeTijd();
+        int speeltijd = getGespeeldeTijdInSecondes();
 
         int woordLengte = 0;
         if (woord.checkWoord(gekregenLetters)) {
             woordLengte = woord.getLength();
         }
 
-        int aantalGoedeVragen = controleerAantalGoedeVragen();
+        int aantalGoedeVragen = getAantalGoedeVragen();
 
-        int totaleScore = puntenStrategy.berekenScore(aantalGoedeVragen, woordLengte, speeltijd);
-        displayBehaaldeScore(totaleScore);
+        score = puntenStrategy.berekenScore(aantalGoedeVragen, woordLengte, speeltijd);
+
+        displayBehaaldeScore(score);
     }
 
-    private int controleerAantalGoedeVragen() {
-        int aantalGoed = 0;
+    private void controleerGoedeAntwoorden() {
         for (GegevenAntwoord antwoord : gegevenAntwoorden) {
             if (antwoord.isAntwoordCorrect()) {
-                aantalGoed++;
+                goedeAntwoorden.add(antwoord);
             }
         }
-        return aantalGoed;
+    }
+
+    private int getAantalGoedeVragen() {
+        return goedeAntwoorden.size();
     }
 
     private void getLettersGoedeAntwoorden() {
-        for (GegevenAntwoord antwoord : gegevenAntwoorden) {
-            if (antwoord.isAntwoordCorrect()) {
-                String letter = antwoord.getLetter();
-                gekregenLetters.add(letter);
-            }
+        for (GegevenAntwoord antwoord : goedeAntwoorden) {
+            String letter = antwoord.getLetter();
+            gekregenLetters.add(letter);
         }
+    }
+
+    private int getGespeeldeTijdInSecondes() {
+        Duration speeltijd = Duration.between(beginTijd, eindTijd);
+
+        int speeltijdInSecondes = (int) speeltijd.getSeconds();
+
+        return speeltijdInSecondes;
+    }
+
+    private LocalDateTime getHuidigeTijd() {
+        return LocalDateTime.now();
     }
 
     public int getQuizNummer() {

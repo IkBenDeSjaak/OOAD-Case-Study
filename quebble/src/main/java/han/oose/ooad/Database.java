@@ -126,8 +126,8 @@ public class Database {
     }
 
     public void generateSpelers() {
-        Speler speler1 = new Speler("patrick", "patpat");
-        Speler speler2 = new Speler("Sjaak", "sjaak123");
+        Speler speler1 = new Speler("patrick", "patpat", 1000);
+        Speler speler2 = new Speler("Sjaak", "sjaak123", 1000);
 
         spelers.add(speler1);
         spelers.add(speler2);
